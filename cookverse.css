@@ -1,0 +1,142 @@
+/* CookVerse Custom Styles
+  FINAL CONSOLIDATED VERSION: Includes Flexbox fixes for perfect vertical and horizontal alignment of cards.
+*/
+
+/* --- Global Body & Typography Reset --- */
+body {
+  /* Using a modern, clean font stack */
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* --- Navigation Links --- */
+.nav-link {
+  color: #4b5563; /* Gray-700 */
+  text-decoration: none;
+  font-weight: 500;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.375rem; /* rounded-md */
+  transition: all 0.2s ease-in-out;
+}
+
+.nav-link:hover {
+  background-color: #f3f4f6; /* Gray-100 */
+  color: #059669; /* Green-600 */
+}
+
+.nav-link-active {
+  /* Styles for the current page link */
+  color: #059669; /* Green-600 */
+  font-weight: 700;
+  border-bottom: 3px solid #059669;
+  padding: 0.5rem 0.75rem 0.25rem 0.75rem; /* Adjust padding for border */
+}
+
+/* --- Dashboard Cards --- */
+.dashboard-card {
+  /* Standard card base layout and hover */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 1.5rem;
+  text-decoration: none;
+  border-radius: 0.5rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.dashboard-card:hover {
+  transform: translateY(-5px); /* Lift effect */
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* Larger shadow */
+}
+
+/* --- Auth Card (Login/Signup) --- */
+.auth-card {
+  padding: 2rem;
+  background-color: white;
+  border-radius: 0.75rem;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.auth-card input {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #d1d5db;
+  border-radius: 0.5rem;
+  box-sizing: border-box;
+  transition: border-color 0.2s;
+}
+
+.auth-card input:focus {
+  border-color: #059669; /* Green-600 */
+  outline: none;
+}
+
+/* --- Primary Button --- */
+.btn {
+  background-color: #059669; /* Green-600 */
+  color: white;
+  font-weight: 600;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.1s;
+}
+
+.btn:hover {
+  background-color: #047857; /* Green-700 */
+  transform: translateY(-1px);
+}
+
+/* ---------------------------------------------------- */
+/* --- RECIPE CARD ALIGNMENT FIX (ESSENTIAL) --- */
+/* ---------------------------------------------------- */
+
+.recipe-card {
+  background-color: #ffffff;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: left;
+  
+  /* CORE FIX 1: Ensures the card fills 100% of the grid cell height */
+  display: flex;
+  flex-direction: column; 
+  height: 100%; 
+}
+
+.recipe-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+.recipe-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+/* CORE FIX 2: Makes the content area expand and push the button down */
+.recipe-card-content {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column; 
+  flex-grow: 1; /* Takes up remaining vertical space */
+}
+
+.recipe-card h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #059669;
+  margin-bottom: 0.25rem;
+}
+
+/* CORE FIX 3: Makes the description text fill all empty space above the button */
+.recipe-card p {
+  color: #4b5563;
+  margin-bottom: 1rem;
+  flex-grow: 1; /* Pushes the button to the bottom */
+}
